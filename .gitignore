@@ -1,0 +1,6 @@
+main
+regexengine.o
+main.o
+a.out
+regexengine.dSYM
+main.dSYM
