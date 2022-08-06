@@ -1,9 +1,9 @@
 # regexengine
 C Regular Expressions Engine
 
-This is a regular expressions engine written in C language. 
+This is a regular expressions engine written from scratch in C language. 
 
-Regular expressions are patterns used to match character combinations in strings.
+Regular expressions are patterns used to match character combinations in strings. More information on regular expressions can be found here: https://en.wikipedia.org/wiki/Regular_expression
 
 The engine currently supports:
 

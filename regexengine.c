@@ -110,7 +110,7 @@ string split_set(string expr)
     return split_set_out;
 }
 
-bool is_open_alternative(char chr)
+bool is_open_alternate(char chr)
 {
     if(chr == '(')
         return TRUE;
@@ -118,7 +118,7 @@ bool is_open_alternative(char chr)
         return FALSE;
 }
 
-bool is_close_alternative(char chr)
+bool is_close_alternate(char chr)
 {
     if(chr == ')')
         return TRUE;
@@ -126,17 +126,17 @@ bool is_close_alternative(char chr)
         return FALSE;
 }
 
-bool is_alternative(string expr)
+bool is_alternate(string expr)
 {
     int expr_len = strlen(expr);
 
-    if(is_open_alternative(expr[0]) == TRUE && is_close_alternative(expr[expr_len - 1]) == TRUE)
+    if(is_open_alternate(expr[0]) == TRUE && is_close_alternate(expr[expr_len - 1]) == TRUE)
         return TRUE;
     else
         return FALSE;
 }
 
-string split_alternative(string expr)
+string split_alternate(string expr)
 {
     int expr_len = strlen(expr); 
 
@@ -156,7 +156,7 @@ bool is_literal(char chr)
 bool is_unit(string expr)
 {
     if(is_literal(expr[0]) == TRUE || is_set(expr) == TRUE || 
-        is_dot(expr[0]) == TRUE || is_alternative(expr) == TRUE || is_escape_sequence(expr) == TRUE)
+        is_dot(expr[0]) == TRUE || is_alternate(expr) == TRUE || is_escape_sequence(expr) == TRUE)
         return TRUE;
     else
         return FALSE;
@@ -173,12 +173,12 @@ split_expr_output split_expr(string expr)
         split_expr_out.head = strndup(expr, close_set_str - expr + 1);
         split_expr_out.rest = close_set_str + 1;
     }
-    if(is_open_alternative(expr[0]) == TRUE)
+    if(is_open_alternate(expr[0]) == TRUE)
     {
-        string close_alternative_str = strstr(expr, ")"); // "]..."
+        string close_alternate_str = strstr(expr, ")"); // "]..."
 
-        split_expr_out.head = strndup(expr, close_alternative_str - expr + 1);
-        split_expr_out.rest = close_alternative_str + 1;
+        split_expr_out.head = strndup(expr, close_alternate_str - expr + 1);
+        split_expr_out.rest = close_alternate_str + 1;
     }
     else if(is_escape(expr[0]) == TRUE)
     {
@@ -232,13 +232,13 @@ does_unit_match_output does_unit_match(string expr, string str)
                 return does_unit_match_out;
             }
     }
-    else if(is_alternative(head) == TRUE)
+    else if(is_alternate(head) == TRUE)
     {
-        string inside_alternative = split_alternative(head);
+        string inside_alternate = split_alternate(head);
         string verticalbar = "|";
         string token;
 
-        token = strtok(inside_alternative, verticalbar);
+        token = strtok(inside_alternate, verticalbar);
 
         while(token != NULL)
         {
