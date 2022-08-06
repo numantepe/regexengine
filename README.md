@@ -7,15 +7,15 @@ Regular expressions are patterns used to match character combinations in strings
 
 The engine currently supports:
 
-  1- Literals:  <i>abc123.</i>
+  1- Literals:  abc123.
   
-  2- Sets:  <i>[abc]</i>
+  2- Sets:  [abc]
   
-  3- Star/plus/question mark:  <i>a*b?c+</i>
+  3- Star/plus/question mark:  a*b?c+
   
-  4- Alternates:  <i>(foo|bar)</i>
+  4- Alternates:  (foo|bar)
   
-  5- Start and end:  <i>^abc$</i>
+  5- Start and end:  ^abc$
   
-  6- Escape sequences:  <i>\a \d</i>
+  6- Escape sequences:  \a \d
   
