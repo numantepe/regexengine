@@ -13,7 +13,7 @@ The engine currently supports:
   
   3- Star/plus/question mark:  <i>a*b?c+</i>
   
-  4- Alternates:  <i>(a|b)</i>
+  4- Alternates:  <i>(foo|bar)</i>
   
   5- Start and end:  <i>^abc$</i>
   
